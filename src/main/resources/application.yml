@@ -1,0 +1,34 @@
+spring:
+  flyway:
+    enabled: false
+    user: BANK_ADMIN
+    password:
+    schemas: BANK_ADMIN
+    url: jdbc:h2:mem:testdb;MODE=Oracle
+    locations: classpath:h2
+    baselineOnMigrate:  false
+    validate-on-migrate:  false
+    clean-disabled:  false
+    encoding: UTF-8
+  h2:
+    console:
+    enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=Oracle
+    password:
+    username: BANK_ADMIN
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  port: 8081
+
+scheduler:
+  delay: 300000
+  enabled: true
+
+
